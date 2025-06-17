@@ -1,67 +1,67 @@
 ---
-title: JHipster Domain Language (JDL) - Getting Started
+title: JHipster 领域语言 (JDL) - 快速开始
 slug: /jdl/getting-started
 last_update:
   date: 2021-03-08T12:00:00-00:00
 ---
 
-In this page, you'll learn about the JDL and how to create applications and everything around them.
+在此页面中，您将了解 JDL 以及如何创建应用程序和周围的一切。
 
 
-## Generating content
+## 生成内容
 
-### Using files
+### 使用文件
 
-You can use JDL files to generate entities:
+您可以使用 JDL 文件来生成实体：
 
-- Create a file with the extension '.jh' or '.jdl',
-- Declare your applications, deployments, entities and relationships or create and download the file with [JDL-Studio](https://start.jhipster.tech/jdl-studio/) or [JHipster IDE](https://www.jhipster.tech/jhipster-ide/),
-- If you are creating only entities then run `jhipster jdl my_file.jdl` in your JHipster application's root folder.
-- If you are creating applications then run `jhipster jdl my_file.jdl` in a folder.
+- 创建一个扩展名为 '.jh' 或 '.jdl' 的文件，
+- 声明您的应用程序、部署、实体和关系，或使用 [JDL-Studio](https://start.jhipster.tech/jdl-studio/) 或 [JHipster IDE](https://www.jhipster.tech/jhipster-ide/) 创建并下载文件，
+- 如果您只是创建实体，那么在您的 JHipster 应用程序根文件夹中运行 `jhipster jdl my_file.jdl`。
+- 如果您要创建应用程序，那么在一个文件夹中运行 `jhipster jdl my_file.jdl`。
 
-and _Voilà_, you are done!
+然后 _瑞拉_，您就完成了！
 
-If you work in a team, perhaps you would like to have multiple files instead of one.
-We added this option so that you don't manually concatenate all the files into one, you have to run:
+如果您在团队中工作，也许您希望有多个文件而不是一个。
+我们添加了此选项，这样您就不需要手动将所有文件连接成一个，您只需运行：
 
 ```shell
 jhipster jdl my_file1.jdl my_file2.jdl
 ```
 
-If you do not want to regenerate your entities while importing a JDL, you can use the `--json-only` flag to skip the
-entity creation part and create only the json files in `.jhipster` folder.
+如果您不想在导入 JDL 时重新生成您的实体，可以使用 `--json-only` 标志来跳过
+实体创建部分，只在 `.jhipster` 文件夹中创建 json 文件。
 
 ```shell
 jhipster jdl ./my-jdl-file.jdl --json-only
 ```
 
-By default `jdl` regenerates only entities that have changed, if you want all your entities to be regenerated
-then pass in the `--force` flag.
-Please note that this will overwrite all your local changes to the entity files:
+默认情况下，`jdl` 只重新生成已更改的实体，如果您希望重新生成所有实体，
+那么请传入 `--force` 标志。
+请注意，这将覆盖您对实体文件的所有本地更改：
 
 ```shell
 jhipster jdl ./my-jdl-file.jdl --force
 ```
 
-If you want to use it in your project, you can add do so by doing:
+如果您想在项目中使用它，可以通过以下方式添加：
 
 ```shell
 npm install jhipster-core --save
 ```
 
-to install it locally, and save it in your `package.json` file.
+将其安装在本地，并将其保存在您的 `package.json` 文件中。
 
-### Using an inline JDL
+### 使用内联 JDL
 
-The other way to generate content is to pass a JDL code in your CLI, this way:
-`jhipster jdl --inline "application { config { baseName jhipster, applicationType microservice } }"`.
+生成内容的另一种方法是在 CLI 中传递 JDL 代码，如下所示：
+`jhipster jdl --inline "application { config { baseName jhipster, applicationType microservice } }"`。
 
-This way of generating content is especially useful when generating entities.
+这种生成内容的方式在生成实体时特别有用。
 
-For now, we'll start with small JDL content to get to know the various ways to generate content.
-The focus here is on the generation of code. Explanation about the syntax is made in other sections.
+现在，我们将从小的 JDL 内容开始，以了解生成内容的各种方式。
+这里的重点是代码的生成。关于语法的解释在其他部分中进行。
 
-Here's the basic content we'll use:
+下面是我们将使用的基本内容：
 
 ```jdl
 application {
@@ -72,15 +72,14 @@ application {
 }
 ```
 
-This is a very basic microservice application named "jhipster", and we'll see the various ways to generate a
-application from this sample.
+这是一个名为 "jhipster" 的非常基本的微服务应用程序，我们将看到从此示例生成应用程序的各种方法。
 
-You'll see that, with this little sample, you've managed to create an application from scratch.
+您将看到，通过这个小示例，您已经设法从头开始创建一个应用程序。
 
 
-## Using a remote JDL file
+## 使用远程 JDL 文件
 
-You can also use an URL with the `jdl` command. Just pass the URL instead of the file name as below
+您也可以在 `jdl` 命令中使用 URL。只需传递 URL 而不是文件名，如下所示
 
 ```shell
 jhipster jdl https://my-site.com/my.jdl
@@ -88,17 +87,17 @@ jhipster jdl https://my-site.com/my.jdl
 jhipster jdl https://gist.githubusercontent.com/user/id/raw/id/myapp.jdl
 ```
 
-You can also fetch a remote JDL file from our [JDL sample repository](https://github.com/jhipster/jdl-samples) by just specifying the filename and we will automatically resolve the URL
+您也可以通过只指定文件名从我们的 [JDL 示例仓库](https://github.com/jhipster/jdl-samples) 获取远程 JDL 文件，我们将自动解析 URL
 
 ```shell
 jhipster jdl default.jdl
 ```
 
 
-## Generating applications
+## 生成应用程序
 
-As we've seen in the previous example, generating applications is quite straightforward, let's take the previous example
-and add more things to it:
+如我们在上一个示例中所见，生成应用程序相当简单，让我们取上一个示例
+并向其中添加更多内容：
 
 ```jdl
 application {
@@ -111,59 +110,58 @@ application {
 }
 ```
 
-Let's break it down:
+让我们分解一下：
 
-- `application` is the keyword to say you want to declare an application
-- `config` to say that you want to specify the configuration
-  - we'll later see that you can also declare entities in applications
-- `baseName`, `applicationType`, etc. are keywords to tweak the application
+- `application` 是说您要声明一个应用程序的关键字
+- `config` 说您要指定配置
+  - 我们稍后会看到您也可以在应用程序中声明实体
+- `baseName`、`applicationType` 等是调整应用程序的关键字
 
-This is how you create an application using the JDL.
-To see all supported application options, head to [this page](/jdl/applications).
+这就是您使用 JDL 创建应用程序的方法。
+要查看所有支持的应用程序选项，请转到[此页面](/jdl/applications)。
 
 
-## Generating entities
+## 生成实体
 
-Generating entities is a bit less straightforward.
-You can also go to the dedicated [entity page](/jdl/entities-fields) to know more about what you can do with entities.
+生成实体稍显复杂一些。
+您也可以转到专门的[实体页面](/jdl/entities-fields)以了解更多关于实体可以做什么。
 
-### Generating a basic entity
+### 生成基本实体
 
 ```jdl
 entity A
 ```
 
-This entity doesn't have fields, or even an explicit table name (even though JHipster sets one for you from the entity's
-name).
-This is the simplest way possible to declare an entity.
+此实体没有字段，甚至没有显式的表名（尽管 JHipster 会从实体名称为您设置一个）。
+这是声明实体的最简单方法。
 
-Note that this form is equivalent to:
+请注意，此形式等同于：
 
 ```jdl
 entity A(a) {}
 ```
 
-We've added a table name and braces.
-By default, JHipster generates a table name based on the specified entity name.
+我们添加了表名和大括号。
+默认情况下，JHipster 根据指定的实体名称生成表名。
 
-The braces are needed when declaring fields.
+在声明字段时需要大括号。
 
-### Adding comments
+### 添加注释
 
-This is the way to add a comment to an entity:
+这是向实体添加注释的方法：
 
 ```jdl
 /**
- * This is a simple entity
+ * 这是一个简单的实体
  */
 entity A
 ```
 
-If the backend is in Java, this will add a Javadoc comment.
+如果后端是 Java，这将添加 Javadoc 注释。
 
-### Entities in applications
+### 应用程序中的实体
 
-To only generate some entities in an application, the `entities` keyword can be used:
+要在应用程序中只生成某些实体，可以使用 `entities` 关键字：
 
 ```jdl
 application {
@@ -181,12 +179,12 @@ entity B
 entity C
 ```
 
-This is especially useful in microservice architectures.
+这在微服务架构中特别有用。
 
 
-## Generating fields
+## 生成字段
 
-Fields are declared in entities, by specifying a body to an entity:
+字段在实体中声明，通过为实体指定主体：
 
 ```jdl
 entity MyEntity {
@@ -195,9 +193,9 @@ entity MyEntity {
 }
 ```
 
-There are more than these two types, check them out in the [entities & fields page](/jdl/entities-fields).
+除了这两个类型外，还有更多类型，请在[实体和字段页面](/jdl/entities-fields)中查看。
 
-### Adding comments and validations
+### 添加注释和验证
 
 The same way we've added comments to entities, we can add comments to fields:
 
