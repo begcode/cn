@@ -199,23 +199,22 @@ jhipster
 ./mvnw
 ```
 
-**Congratulations! You've launched your JHipster app inside Docker!**
+**恭喜！您已经在 Docker 内启动了 JHipster 应用程序！**
 
-On your machine, you should be able to:
+在您的机器上，您应该能够：
 
-* Access the running application at `http://DOCKER_HOST:8080`
-* Get all the generated files inside your shared folder
+* 在 `http://DOCKER_HOST:8080` 访问正在运行的应用程序
+* 在您的共享文件夹中获取所有生成的文件
 
 :::warning
-By default, Docker is not installed inside the `jhipster/jhipster` image.
+默认情况下，Docker 未安装在 `jhipster/jhipster` 镜像内。
 
-So you won't be able to:
-- use the docker-compose files
-- build a Docker image with the docker daemon (Maven goal: `jib:dockerBuild` or Gradle task: `jibDockerBuild`)
+因此您将无法：
+- 使用 docker-compose 文件
+- 使用 docker 守护进程构建 Docker 镜像（Maven 目标：`jib:dockerBuild` 或 Gradle 任务：`jibDockerBuild`）
 
-However, you will be able to use [jib](https://github.com/GoogleContainerTools/jib)'s daemonless mode which can build 
-a docker image and push it to a registry without access to a docker daemon (Maven goal: `jib:build` or Gradle task: `jibBuild`). 
-But you will need to setup credentials to the docker registry as a pre-requisite of building the app. 
-See the [Jib plugin configuration documentations](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#configuration) for more details.
+但是，您可以使用 [jib](https://github.com/GoogleContainerTools/jib) 的无守护进程模式，该模式可以在不访问 docker 守护进程的情况下构建 docker 镜像并将其推送到注册表（Maven 目标：`jib:build` 或 Gradle 任务：`jibBuild`）。
+但是您需要在构建应用程序之前设置 docker 注册表的凭据作为前提条件。
+有关更多详细信息，请参阅 [Jib 插件配置文档](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#configuration)。
 
 :::

@@ -204,65 +204,65 @@ JHipster 可选地为您创建增量更改日志，这样您就不需要重新�
 
 支持的功能：
 
-*   Create/remove fields
-*   Create/remove relationships
-*   JDL and prompts
+*   创建/删除字段
+*   创建/删除关系
+*   JDL 和提示
 
-Doesn't support attribute changes like type and constraints.
+不支持属性更改，如类型和约束。
 
-Conflicts with:
+冲突情况：
 
-*   `--fork` option, since it saves to disk overriding the old state.
+*   `--fork` 选项，因为它保存到磁盘会覆盖旧状态。
 
-### Would you like to install other generators from the JHipster Marketplace?
+### 您是否想从 JHipster 市场安装其他生成器？
 
-The [JHipster Marketplace](/modules/marketplace/) is where you can install additional modules, written by third-party developers, to add non-official features to your project.
+[JHipster 市场](/modules/marketplace/) 是您可以安装由第三方开发人员编写的附加模块的地方，为您的项目添加非官方功能。
 
 
-## Using a blueprint
+## 使用蓝图
 
-JHipster 5 introduces the concept of a blueprint. Blueprints are JHipster modules that can provide custom client/server side templates that will override the ones from JHipster. For example, the [Kotlin blueprint](https://github.com/jhipster/jhipster-kotlin) replaces most of the Java server side code with Kotlin.
+JHipster 5 引入了蓝图的概念。蓝图是 JHipster 模块，可以提供自定义客户端/服务器端模板，用于覆盖 JHipster 的模板。例如，[Kotlin 蓝图](https://github.com/jhipster/jhipster-kotlin) 将大部分 Java 服务器端代码替换为 Kotlin。
 
-For example, to use the Kotlin blueprint pass the name of the blueprint like below while generating an app.
+例如，要使用 Kotlin 蓝图，在生成应用程序时传递蓝图名称，如下所示。
 
 ```bash
 jhipster --blueprint kotlin
 ```
 
-The name of the blueprint is saved in the `.yo-rc.json` and will be automatically used while executing sub-generators like `entity`, `spring-controller` and `spring-service`.
+蓝图的名称保存在 `.yo-rc.json` 中，在执行子生成器（如 `entity`、`spring-controller` 和 `spring-service`）时将自动使用。
 
-If a blueprint doesn't implement a specific sub-generator, it will be skipped and the JHipster templates for the same sub-generator will be used.
+如果蓝图没有实现特定的子生成器，它将被跳过，并使用相同子生成器的 JHipster 模板。
 
-**Note:** An application can use only one blueprint, multiple blueprints are not supported yet.
-
-
-## Command-line options
-
-You can also run JHipster with some optional command-line options. Reference for those options can be found by typing `jhipster app --help`.
-
-Here are the options you can pass:
-
-* `--help` - Print the generator's options and usage
-* `--blueprint` - Specify a blueprint to use. For example `jhipster --blueprint kotlin`
-* `--skip-cache` - Do not remember prompt answers (Default: false)
-* `--skip-git` - Do not add the generated project to Git automatically (Default: false)
-* `--skip-install` - Do not automatically install dependencies (Default: false)
-* `--skip-client` - Skip the client-side application generation, so you only have the Spring Boot back-end code generated (Default: false).
-* `--skip-server` - Skip the server-side application generation, so you only have the front-end code generated (Default: false).
-* `--skip-user-management` - Skip the user management generation, both on the back-end and on the front-end (Default: false)
-* `--i18n` - Disable or enable i18n when skipping client side generation, has no effect otherwise (Default: true)
-* `--auth` - Specify the authentication type when skipping server side generation, has no effect otherwise but mandatory when using `skip-server`
-* `--db` - Specify the database when skipping server side generation, has no effect otherwise but mandatory when using `skip-server`
-* `--skip-checks` - Skip the check of the required tools (Default: false)
-* `--jhi-prefix` - Add prefix before services, components and state/route names (Default: jhi)
-* `--entity-suffix` - Add suffix after entities class names (Default: empty string)
-* `--dto-suffix` - Add suffix after DTOs class names (Default: DTO)
-* `--prettier-java` - Use [prettier-java](https://github.com/jhipster/prettier-java) for formatting all Java classes (Default: false)
-* `--experimental` - Enable experimental features. Please note that these features may be unstable and may undergo breaking changes at any time
-* `--skip-fake-data` - Skip generation of fake data for development
-* `--creation-timestamp` - Set a timestamp for reproducible build. Timestamp should be a parsable js date ex: 2019-01-01. Must be used with --with-entities or import-jdl (generator-jhipster > 6.5.1)
+**注意：** 一个应用程序只能使用一个蓝图，尚不支持多个蓝图。
 
 
-## Tips
+## 命令行选项
 
-You can also use the Yeoman command-line options, like `--force` to automatically overwrite existing files. So if you want to regenerate your whole application, including its entities, you can run `jhipster --force`.
+您也可以使用一些可选的命令行选项运行 JHipster。输入 `jhipster app --help` 可以找到这些选项的参考。
+
+以下是您可以传递的选项：
+
+* `--help` - 打印生成器的选项和用法
+* `--blueprint` - 指定要使用的蓝图。例如 `jhipster --blueprint kotlin`
+* `--skip-cache` - 不记住提示答案（默认：false）
+* `--skip-git` - 不自动将生成的项目添加到 Git（默认：false）
+* `--skip-install` - 不自动安装依赖（默认：false）
+* `--skip-client` - 跳过客户端应用程序生成，所以您只有 Spring Boot 后端代码生成（默认：false）。
+* `--skip-server` - 跳过服务器端应用程序生成，所以您只有前端代码生成（默认：false）。
+* `--skip-user-management` - 跳过用户管理生成，包括后端和前端（默认：false）
+* `--i18n` - 在跳过客户端生成时禁用或启用 i18n，否则无效（默认：true）
+* `--auth` - 在跳过服务器端生成时指定身份验证类型，否则无效，但使用 `skip-server` 时为必需
+* `--db` - 在跳过服务器端生成时指定数据库，否则无效，但使用 `skip-server` 时为必需
+* `--skip-checks` - 跳过必需工具的检查（默认：false）
+* `--jhi-prefix` - 在服务、组件和状态/路由名称前添加前缀（默认：jhi）
+* `--entity-suffix` - 在实体类名后添加后缀（默认：空字符串）
+* `--dto-suffix` - 在 DTO 类名后添加后缀（默认：DTO）
+* `--prettier-java` - 使用 [prettier-java](https://github.com/jhipster/prettier-java) 格式化所有 Java 类（默认：false）
+* `--experimental` - 启用实验性功能。请注意，这些功能可能不稳定，可能随时发生破坏性更改
+* `--skip-fake-data` - 跳过为开发生成虚假数据
+* `--creation-timestamp` - 为可重现构建设置时间戳。时间戳应该是可解析的 js 日期，例：2019-01-01。必须与 --with-entities 或 import-jdl 一起使用（generator-jhipster > 6.5.1）
+
+
+## 提示
+
+您也可以使用 Yeoman 命令行选项，如 `--force` 可以自动覆盖现有文件。因此，如果您想重新生成整个应用程序（包括其实体），您可以运行 `jhipster --force`。
